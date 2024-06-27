@@ -46,6 +46,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Verify installation
 RUN composer --version
 
+RUN curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+
+RUN sudo apt install -y nodejs
+
+
 # sudo www-data
 RUN echo "www-data ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 

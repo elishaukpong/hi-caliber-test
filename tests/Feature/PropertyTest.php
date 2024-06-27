@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Models\Property;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -24,7 +23,7 @@ class PropertyTest extends TestCase
     #[Test]
     public function can_filter_properties_by_name(): void
     {
-        $response = $this->get('/api/v1/properties?name=The Vic');
+        $response = $this->get('/api/v1/properties?name=The Vic*');
 
         $response->assertStatus(200)
             ->assertJsonFragment([

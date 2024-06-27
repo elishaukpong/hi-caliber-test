@@ -13,11 +13,13 @@ class PropertyTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected $seed = true;
+
     #[Test]
     public function can_create_property()
     {
         $propertyData = [
-            'name' => 'The Victoria',
+            'name' => 'The Territory',
             'price' => 374662,
             'bedroom_count' => 4,
             'bathroom_count' => 2,
@@ -36,7 +38,7 @@ class PropertyTest extends TestCase
         $properties = Property::factory()->count(5)->create();
 
         $targetProperty = Property::create([
-            'name' => 'The Victoria',
+            'name' => 'The Territory',
             'price' => 374662,
             'bedroom_count' => 4,
             'bathroom_count' => 2,
@@ -52,7 +54,7 @@ class PropertyTest extends TestCase
 
         $request = app()->make(Request::class);
 
-        $request->offsetSet('name', 'The Vic');
+        $request->offsetSet('name', 'The Terr*');
 
         $filter = new PropertyFilter($request);
 
