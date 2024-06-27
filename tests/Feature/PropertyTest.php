@@ -28,10 +28,10 @@ class PropertyTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'name' => 'The Victoria',
-                'price' => 374662
+                'price' => "374662.00"
             ])->assertJsonMissing([
                 'name' => 'The Xavier',
-                'price' => 513268,
+                'price' => "513268.00",
             ]);
     }
 
@@ -43,10 +43,10 @@ class PropertyTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'name' => 'The Skyscape',
-                'price' => 263604,
+                'price' => "263604.00",
             ])->assertJsonMissing([
                 'name' => 'The Xavier',
-                'price' => 513268,
+                'price' => "513268.00",
             ]);
     }
 
