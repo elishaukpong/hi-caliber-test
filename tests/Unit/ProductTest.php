@@ -2,14 +2,13 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ProductTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_that_true_is_true(): void
+    #[Test]
+    public function can_apply_filter_scope(): void
     {
         $this->assertTrue(true);
     }

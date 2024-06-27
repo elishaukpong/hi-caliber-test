@@ -5,7 +5,7 @@ namespace App\Http\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-abstract class BaseQueryFilterClass
+abstract class BaseQueryFilter
 {
     protected Builder $builder;
 

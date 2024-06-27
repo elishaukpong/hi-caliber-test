@@ -4,7 +4,7 @@ namespace App\Http\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class PropertyFilterClass extends BaseQueryFilterClass
+class PropertyFilter extends BaseQueryFilter
 {
     public function name($value): Builder
     {
