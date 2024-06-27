@@ -32,7 +32,7 @@
       </div>
 
       <div class="mt-7">
-        <button @click="$emit('cancelSearchProperty')" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-blue-600 w-full">Clear</button>
+        <button @click="dispatchCancelSearchEvent" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-blue-600 w-full">Clear</button>
       </div>
     </div>
   </form>
@@ -79,6 +79,21 @@ function dispatchSubmitEvent(e) {
   if(params) {
     emit('searchProperty', { params: params });
   }
+}
+
+function dispatchCancelSearchEvent(e) {
+  for (const key in formData.value) {
+    if(key === 'price') {
+      formData.value[key].from = '';
+      formData.value[key].to = ''
+
+      continue;
+    }
+
+    formData.value[key] = '';
+  }
+
+  emit('cancelSearchProperty')
 }
 
 </script>

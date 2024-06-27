@@ -14,33 +14,34 @@ import PropertyListing from "./propertyListingView.vue";
 
 let properties = ref([]);
 
-async function getPropertyData() {
-  try {
-    await axios.get('http://localhost:81/api/v1/properties')
-        .then(response => response.data)
-        .then(response => properties.value = response.data);
-  } catch (error) {
-    console.error('Error fetching property data:', error);
-  }
-}
-
 onMounted(() => {
-  getPropertyData();
+  makeNetworkRequestForProperties();
 });
 
-async function searchProperty(event) {
-  try {
-    await axios.get('http://localhost:81/api/v1/properties?' + event.params)
-        .then(response => response.data)
-        .then(response => properties.value = response.data);
-  } catch (error) {
-    console.error('Error fetching property data:', error);
-  }
+function searchProperty(event) {
+  makeNetworkRequestForProperties(event.params)
 }
 
 function cancelSearch(event) {
-  getPropertyData();
+  makeNetworkRequestForProperties();
 }
 
+async function makeNetworkRequestForProperties(params = '') {
+  let url = 'http://localhost:81/api/v1/properties';
+
+  if(params) {
+    url += '?' + params;
+  }
+
+  try {
+    await axios.get(url)
+        .then(response => response.data)
+        .then(response => properties.value = response.data);
+  } catch (error) {
+    properties.value = [];
+
+    console.error('Error fetching property data:', error);
+  }
+}
 
 </script>
