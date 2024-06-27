@@ -14,6 +14,9 @@
 <body class="bg-gray-100 p-8">
 <div id="app" class="container mx-auto px-4">
     <h1 class="text-4xl font-bold text-center text-gray-800 mt-8">Welcome to Property Search</h1>
+
+    <properties></properties>
+
 </div>
 </body>
 </html>
