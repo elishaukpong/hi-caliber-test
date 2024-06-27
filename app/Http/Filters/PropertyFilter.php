@@ -33,12 +33,12 @@ class PropertyFilter extends BaseQueryFilter
 
     public function price($value): Builder
     {
-        $createdAt = explode(',', $value);
+        $price = explode(',', $value);
 
-        if (count($createdAt) > 1) {
-            return $this->builder->whereBetween('price', $createdAt);
+        if (count($price) > 1) {
+            return $this->builder->whereBetween('price', $price);
         }
 
-        return $this->builder->whereDate('price', $createdAt);
+        return $this->builder->where('price', $price);
     }
 }

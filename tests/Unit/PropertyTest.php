@@ -61,4 +61,7 @@ class PropertyTest extends TestCase
         $properties->each(fn($property) => $this->assertFalse($filteredProperties->contains($property->id)));
         $this->assertTrue($filteredProperties->contains($targetProperty->id));
     }
+
+    // more tests can be added here but for sake of time
+
 }
