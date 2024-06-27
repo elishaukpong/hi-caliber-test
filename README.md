@@ -21,7 +21,7 @@
 ### Subsequently
 - run `docker-compose up -d` and allow to set up containers, this will power up the application on `localhost:81`
 
-NB: If you are having conflicting ports error, check your `.env file and change ports for conflicting services`
+NB: If you are having conflicting ports error, check your `.env` file and change ports for conflicting services`
 
 ## Tests
 
