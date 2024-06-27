@@ -11,6 +11,8 @@ class Property extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function scopeFilter(Builder $builder, BaseQueryFilter $filter): Builder
     {
         return $filter->apply($builder);
