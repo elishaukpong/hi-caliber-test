@@ -8,7 +8,9 @@ class PropertyFilter extends BaseQueryFilter
 {
     public function name($value): Builder
     {
-        return $this->builder->where('name', 'LIKE', $value . '%');
+        $likeString = str_replace('*','%', $value);
+
+        return $this->builder->where('name', 'LIKE', $likeString);
     }
 
     public function bedrooms($value): Builder

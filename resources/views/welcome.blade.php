@@ -15,6 +15,10 @@
 <div id="app" class="container mx-auto px-4">
     <h1 class="text-4xl font-bold text-center text-gray-800 mt-8">Welcome to Property Search</h1>
 
+    <p class="text-center text-gray-800 mt-8">You can search for partial names by using * as a wildcard for unknown parts..</p>
+
+    <p class="text-center text-gray-800 mt-2">Example: The* would match everything that starts from The </p>
+
     <properties></properties>
 
 </div>
