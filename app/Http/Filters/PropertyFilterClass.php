@@ -2,7 +2,7 @@
 
 namespace App\Http\Filters;
 
-class PropertyFilterClass
+class PropertyFilterClass extends BaseQueryFilterClass
 {
 
 }
