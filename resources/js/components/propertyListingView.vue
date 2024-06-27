@@ -13,6 +13,7 @@
       </tr>
       </thead>
       <tbody>
+        <property-listing-item v-for="property in properties" :property="property"></property-listing-item>
       </tbody>
     </table>
   </div>
@@ -24,6 +25,7 @@
 </template>
 
 <script setup>
+import PropertyListingItem from "./propertyListingItemView.vue";
 
 defineProps({
   properties: {
