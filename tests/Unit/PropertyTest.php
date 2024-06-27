@@ -44,15 +44,21 @@ class PropertyTest extends TestCase
             'garage_count' => 2,
         ]);
 
+        $allProperties = Property::all()->pluck('id');
+
+        $properties->each(fn($property) => $this->assertTrue($allProperties->contains($property->id)));
+        $this->assertTrue($allProperties->contains($targetProperty->id));
+
+
         $request = app()->make(Request::class);
 
         $request->offsetSet('name', 'The Vic');
 
         $filter = new PropertyFilter($request);
 
-        $filteredProperties = Property::filter($filter)->get();
+        $filteredProperties = Property::filter($filter)->get()->pluck('id');
 
-        $this->assertFalse($filteredProperties->pluck('id')->contains($properties->pluck('id')->toArray()));
-        $this->assertTrue($filteredProperties->pluck('id')->contains($targetProperty->id));
+        $properties->each(fn($property) => $this->assertFalse($filteredProperties->contains($property->id)));
+        $this->assertTrue($filteredProperties->contains($targetProperty->id));
     }
 }
