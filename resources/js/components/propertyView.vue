@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto mt-10">
-    <PropertySearch></PropertySearch>
+    <PropertySearch @searchProperty="searchProperty" @cancelSearchProperty="cancelSearch"></PropertySearch>
 
     <PropertyListing :properties="properties"></PropertyListing>
   </div>
@@ -27,6 +27,20 @@ async function getPropertyData() {
 onMounted(() => {
   getPropertyData();
 });
+
+async function searchProperty(event) {
+  try {
+    await axios.get('http://localhost:81/api/v1/properties?' + event.params)
+        .then(response => response.data)
+        .then(response => properties.value = response.data);
+  } catch (error) {
+    console.error('Error fetching property data:', error);
+  }
+}
+
+function cancelSearch(event) {
+  getPropertyData();
+}
 
 
 </script>

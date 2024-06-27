@@ -41,7 +41,6 @@
 <script setup>
 import { ref, getCurrentInstance } from 'vue';
 
-// const emit = defineEmits(['searchProperty']);
 const {emit} = getCurrentInstance();
 
 const formData = ref({
