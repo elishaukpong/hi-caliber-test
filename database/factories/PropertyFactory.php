@@ -17,7 +17,12 @@ class PropertyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'price' => $this->faker->numerify('#####'),
+            'bedroom_count' => $this->faker->numberBetween(1,10),
+            'bathroom_count' => $this->faker->numberBetween(1,10),
+            'storey_count' => $this->faker->numberBetween(1,10),
+            'garage_count' => $this->faker->numberBetween(1,10),
         ];
     }
 }
